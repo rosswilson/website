@@ -1,0 +1,19 @@
+<header class="header">
+	{{ if .IsHome }}
+		{{ $image := resources.Get "images/ross.jpg" | fingerprint }}
+		<img class="header--image" src="{{ $image.Permalink }}">
+
+		<h1 class="header--title">
+			<a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a>
+		</h1>
+		
+		<h2 class="header--description">{{ .Site.Params.description }}</h2>
+	{{ end }}
+
+	<div class="nav">
+    {{ $currentPage := . }}
+		{{ range .Site.Menus.main }}
+      <a class="nav- {{ if $currentPage.IsMenuCurrent "main" . }}nav-current{{ end }}" role="presentation" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+		{{ end }}
+	</div>
+</header>
