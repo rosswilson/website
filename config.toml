@@ -1,0 +1,6 @@
+baseURL = "https://www.rosswilson.co.uk/"
+languageCode = "en-us"
+title = "Ross Wilson"
+
+[params]
+  description = "Senior Software Engineer"

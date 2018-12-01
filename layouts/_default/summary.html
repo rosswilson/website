@@ -1,0 +1,14 @@
+<article class="post">
+	<header class="post-header">
+    {{ with .Params.image }}
+      <img src="{{ . }}"></img>
+    {{ end }}
+
+    <h2 class="post-title"><a href="{{ .URL }}">{{ .Title }}</a></h2>
+    <time>{{ .Date.Format (.Site.Params.dateFormatToUse | default "Monday, Jan 2, 2006")  }}</time>
+  </header>
+
+	<section class="post-excerpt">
+    <p>{{ .Summary }}</p>
+  </section>
+</article>

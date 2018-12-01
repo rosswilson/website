@@ -1,0 +1,90 @@
+@import "vendor/normalise";
+
+body {
+    width: 80%;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #3A4145;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+	margin: 0;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color: #3A4145;
+	text-decoration: none;
+}
+
+// Header
+
+.header {
+    padding: 3rem 0;
+    // margin-bottom: 1rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.header--image {
+	width: 150px;
+	border-radius: 100%;
+}
+
+.header--title {
+	font-weight: 300;
+    font-size: 3rem;
+}
+
+.header--description {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #9EABB3;
+    font-weight: 300;
+}
+
+// Footer
+
+.site-footer {
+    position: relative;
+    display: table;
+    width: 100%;
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    overflow: hidden;
+    font-size: .79rem;
+}
+
+.site-footer a {
+	color: #FC7E0F;
+	text-decoration: none;
+}
+
+.site-footer a:hover {
+	color: #9EABB3;
+}
+
+// Pagination
+
+.pagination {
+    position: relative;
+    margin: 2rem auto;
+    font-size: .79rem;
+    color: #9EABB3;
+    text-align: center;
+}
+
+.pagination a {
+    color: #9EABB3;
+}
+
+// Media Queries
+
+@media only screen and (max-width: 500px) {
+   .header--title {
+		font-size: 2rem;
+	}
+}
