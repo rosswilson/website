@@ -17,6 +17,9 @@
           "IgnorePublicAcls": false,
           "BlockPublicPolicy": true,
           "RestrictPublicBuckets": true
+        },
+        "WebsiteConfiguration": {
+          "IndexDocument" : "index.html"
         }
       }
     },
@@ -54,13 +57,18 @@
             {
               "Id": "s3-ross-wilson-website",
               "DomainName": {
-                "Fn::GetAtt": [
-                  "ContentBucket",
-                  "RegionalDomainName"
+                "Fn::Join": [
+                  ".",
+                  [
+                    {
+                      "Ref": "ContentBucket"
+                    },
+                    "s3-website-eu-west-1.amazonaws.com"
+                  ]
                 ]
               },
-              "S3OriginConfig": {
-                "OriginAccessIdentity": ""
+              "CustomOriginConfig": {
+                "OriginProtocolPolicy": "http-only"
               }
             }
           ],
