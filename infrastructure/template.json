@@ -72,7 +72,7 @@
               }
             }
           ],
-          "PriceClass": "PriceClass_100",
+          "PriceClass": "PriceClass_All",
           "ViewerCertificate": {
             "AcmCertificateArn": {
               "Ref": "AcmCertificateArn"
