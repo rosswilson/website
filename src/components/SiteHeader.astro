@@ -1,0 +1,29 @@
+---
+interface Props {
+  active?: 'home' | 'about';
+}
+const { active } = Astro.props;
+const linkClass = (key: 'home' | 'about') =>
+  `px-3 py-2 text-sm uppercase tracking-wide ${
+    active === key ? 'text-white' : 'text-white/70 hover:text-white'
+  }`;
+---
+<nav class="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-6 py-4">
+  <ul class="flex items-center">
+    <li><a href="/" class={linkClass('home')}>Home</a></li>
+    <li><a href="/about/" class={linkClass('about')}>About</a></li>
+  </ul>
+  <ul class="flex items-center">
+    <li>
+      <a
+        href="https://twitter.com/rossalexwilson"
+        target="_blank"
+        rel="noopener"
+        aria-label="Twitter"
+        class="text-sm text-white/70 hover:text-white"
+      >
+        @rossalexwilson
+      </a>
+    </li>
+  </ul>
+</nav>

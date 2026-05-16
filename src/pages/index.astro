@@ -1,12 +1,14 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Ross Wilson</title>
-  </head>
-  <body class="font-sans text-ink">
-    <p class="p-8 text-2xl">tailwind ok</p>
-  </body>
-</html>
+<BaseLayout title="Ross Wilson">
+  <header slot="header" class="bg-ink py-12 relative">
+    <SiteHeader active="home" />
+    <div class="text-center text-white mt-12">
+      <h1 class="text-5xl font-bold">Ross Wilson</h1>
+      <p class="mt-2 text-white/80">My procrastination notes</p>
+    </div>
+  </header>
+  <p class="max-w-3xl mx-auto px-6 py-12">placeholder — posts go here</p>
+</BaseLayout>
