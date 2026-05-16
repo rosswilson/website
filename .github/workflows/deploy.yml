@@ -32,16 +32,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: >
-            pages deploy dist
-            --project-name=rosswilson-co-uk
-            ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && '--branch=main' || format('--branch=pr-{0}', github.event.pull_request.number) }}
+            ${{ github.event_name == 'pull_request' && 'versions upload' || 'deploy' }}
