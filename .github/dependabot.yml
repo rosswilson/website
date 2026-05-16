@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      # Astro 6 ships Rolldown as the Vite bundler, which is currently
+      # incompatible with @tailwindcss/vite (BindingViteResolvePluginConfig
+      # errors on `npm run build`). Skip Astro majors until the upstream
+      # incompatibility is fixed; minors and patches on 5.x are fine.
+      - dependency-name: "astro"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
