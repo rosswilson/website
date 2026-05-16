@@ -4,6 +4,7 @@ date: 2019-01-30
 excerpt: >-
   I was invited onto a podcast. Listen to me talk about Christmas-related
   bugs, and my opinion on code freezes.
+cover: /content/images/2021/02/matt-botsford-197870-unsplash-1.jpg
 ---
 
 I was invited onto a podcast. Listen to me talk about Christmas related bugs, and my opinion on code freezes.
