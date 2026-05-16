@@ -11,7 +11,7 @@ interface Props {
 const {
   title,
   description = 'Personal website and blog, really just my procrastination notes.',
-  ogImage = '/content/images/2021/02/louis-reed-zDxlNcdUzxk-unsplash-1.jpg',
+  ogImage = '/content/images/2021/02/louis-reed-zDxlNcdUzxk-unsplash-1.webp',
   canonical = Astro.url.href,
 } = Astro.props;
 const ogImageAbsolute = new URL(ogImage, Astro.site ?? Astro.url).href;

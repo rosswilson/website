@@ -11,7 +11,7 @@ const required = [
   'festive-bugs/index.html',
   'sitemap-index.xml',
   'favicon.ico',
-  'content/images/2021/02/louis-reed-zDxlNcdUzxk-unsplash-1.jpg',
+  'content/images/2021/02/louis-reed-zDxlNcdUzxk-unsplash-1.webp',
 ];
 
 let failed = false;

@@ -24,6 +24,8 @@ const dateISO = date.toISOString().slice(0, 10);
         <img
           src={cover}
           alt=""
+          fetchpriority="high"
+          decoding="async"
           class="absolute inset-0 w-full h-full object-cover opacity-50"
         />
         <div class="absolute inset-0 bg-black/30"></div>
@@ -33,7 +35,7 @@ const dateISO = date.toISOString().slice(0, 10);
       <h1 class="text-4xl md:text-5xl font-bold">{title}</h1>
       <div class="mt-6 flex items-center justify-center gap-3">
         <img
-          src="/images/ross-wilson.jpg"
+          src="/images/ross-wilson.webp"
           alt=""
           class="w-10 h-10 rounded-full object-cover ring-2 ring-white/30"
         />
