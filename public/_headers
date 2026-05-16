@@ -1,0 +1,13 @@
+# Fingerprinted Astro bundles (CSS, JS, fontsource woff2) — filenames change with content.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Stable-path images served from public/ — cache for a week, browser revalidates after.
+/content/images/*
+  Cache-Control: public, max-age=604800
+
+/images/*
+  Cache-Control: public, max-age=604800
+
+/favicon.ico
+  Cache-Control: public, max-age=86400
