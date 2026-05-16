@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  date: Date;
+  excerpt?: string;
+}
+const { title, href, date, excerpt } = Astro.props;
+const dateLabel = date.toLocaleDateString('en-GB', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric',
+});
+const dateISO = date.toISOString().slice(0, 10);
+---
+<article class="border-b border-black/10 py-10 last:border-b-0">
+  <h2 class="text-2xl md:text-3xl font-semibold">
+    <a href={href} class="hover:underline">{title}</a>
+  </h2>
+  <p class="mt-2 text-sm text-ink/60">
+    By Ross Wilson on <time datetime={dateISO}>{dateLabel}</time>
+  </p>
+  {excerpt && <p class="mt-4 text-ink/80 leading-relaxed">{excerpt}</p>}
+</article>
