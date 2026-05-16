@@ -21,7 +21,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     {posts.map((post) => (
       <PostCard
         title={post.data.title}
-        href={`/${post.slug}/`}
+        href={`/${post.id}/`}
         date={post.data.date}
         excerpt={post.data.excerpt}
       />

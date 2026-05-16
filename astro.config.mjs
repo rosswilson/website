@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://rosswilson.co.uk',
@@ -8,5 +8,8 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  integrations: [tailwind(), sitemap()],
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
