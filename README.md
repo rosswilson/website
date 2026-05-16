@@ -4,7 +4,7 @@ Static personal site built with Astro and deployed to Cloudflare Pages.
 
 ## Local development
 
-Requires Node 22 (see `.nvmrc`).
+Requires Node 24 (see `.nvmrc`).
 
 ```bash
 nvm use         # or: fnm use
