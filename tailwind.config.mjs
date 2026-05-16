@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         sans: [
+          'Fira Sans',
           '-apple-system',
           'BlinkMacSystemFont',
           'Segoe UI',
@@ -14,6 +15,13 @@ export default {
           'Helvetica Neue',
           'Arial',
           'sans-serif',
+        ],
+        serif: [
+          'Libre Baskerville',
+          'Georgia',
+          'Cambria',
+          'Times New Roman',
+          'serif',
         ],
       },
       colors: {
