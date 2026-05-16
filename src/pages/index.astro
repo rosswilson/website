@@ -1,14 +1,30 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import HeroCover from '../components/HeroCover.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <BaseLayout title="Ross Wilson">
-  <header slot="header" class="bg-ink py-12 relative">
-    <SiteHeader active="home" />
-    <div class="text-center text-white mt-12">
-      <h1 class="text-5xl font-bold">Ross Wilson</h1>
-      <p class="mt-2 text-white/80">My procrastination notes</p>
-    </div>
-  </header>
-  <p class="max-w-3xl mx-auto px-6 py-12">placeholder — posts go here</p>
+  <HeroCover
+    slot="header"
+    title="Ross Wilson"
+    subtitle="My procrastination notes"
+    image="/content/images/2021/02/louis-reed-zDxlNcdUzxk-unsplash-1.jpg"
+  >
+    <SiteHeader slot="nav" active="home" />
+  </HeroCover>
+  <section class="max-w-3xl mx-auto px-6">
+    {posts.map((post) => (
+      <PostCard
+        title={post.data.title}
+        href={`/${post.slug}/`}
+        date={post.data.date}
+        excerpt={post.data.excerpt}
+      />
+    ))}
+  </section>
 </BaseLayout>
