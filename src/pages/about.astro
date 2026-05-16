@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+---
+<BaseLayout title="About — Ross Wilson">
+  <header slot="header" class="relative bg-ink text-white">
+    <SiteHeader active="about" />
+    <div class="relative max-w-3xl mx-auto px-6 py-24 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">About</h1>
+    </div>
+  </header>
+  <article class="prose prose-lg mx-auto px-6 py-12 max-w-3xl">
+    <p>I'm the Solutions Architect at <a href="https://www.gumtree.com/">Gumtree</a>, prior to this I spent eight years at the British Broadcasting Corporation. I've had a range of roles whilst at the BBC, starting as a Graduate Software Engineer and before I left I was a Senior Technical Architect.</p>
+    <p>I'm inquisitive, and I love exploring how things work. Whilst at university I worked for an events team, and later as a Crew Supervisor. We planned, rigged, and operated the lighting, live sound, and AV equipment for large events, on and off campus.</p>
+    <figure>
+      <img src="/content/images/2021/02/20130623_150004_Richardson-St-1.jpg" alt="Blackpool Tower Ballroom, for a Graduation Ball event" width="2000" height="1125" loading="lazy" />
+      <figcaption>Blackpool Tower Ballroom, for a Graduation Ball event</figcaption>
+    </figure>
+    <p>After four years I graduated with a First Class MSci in Computer Science with Industrial Experience. This led to a successful application to join what was called the BBC Digital Media Graduate Scheme.</p>
+    <p>Over two years I rotated across different teams and services, exploring wildly varied technologies, architectures, and ways of working. I've had experience of Scala, which underpins editorial tooling for the <a href="https://www.bbc.co.uk/">BBC Homepage</a>; Android and iOS development with the BBC Children's department, and this led to me spending 8 months building the <a href="https://www.bbc.co.uk/iplayer/features/iplayer-kids">BBC iPlayer Kids</a> mobile app. Research and Development is an exciting place to be for an inquisitive person, so I spent some time investigating <a href="https://www.bbc.co.uk/rd/projects/ip-studio">the future of broadcasting infrastructure</a> — moving away from dedicated specialist hardware, to commercial off-the-shelf hardware like IP switches and routers.</p>
+    <figure>
+      <img src="/content/images/2021/02/IMG_3414-1-1.jpg" alt="Traditional broadcast equipment, typically found at an outside broadcast" width="2000" height="2667" loading="lazy" />
+      <figcaption>Traditional broadcast equipment, typically found at an outside broadcast</figcaption>
+    </figure>
+    <p>I also worked with the team that builds and supports the BBC's TV applications. If you've used BBC iPlayer on your smart TV or games console, you've been running code that I wrote. Having enjoyed the work so much, I landed a permanent role with the team once my graduate scheme finished.</p>
+    <p>The world of TV application development is both fascinating and, at times, really challenging. I spoke at two O'Reilly conferences in 2018 about architecting services for TV. That's another blog post on my list of things to write, so watch out for that if it's piqued your interest.</p>
+    <p>Most recently, however, I've moved teams and now work for the BBC-wide account platform. We're the front-door of a personalised BBC experience. With a free BBC account, members of the audience receive personalised content recommendations, gain multi-device experiences (like pausing and resuming content from any device), and can participate (such as commenting, uploading content, or voting).</p>
+    <p>The team operates cross-site, with people in London and Salford. This forces us to be open to dynamic working — all meetings happen over video conferencing, so location really doesn't matter. I'd like to talk more about how we achieve a great working environment, sometimes with every member of the team working from their own locations. I've added it to my blog ideas TODO list.</p>
+    <p>And with that, you're up to date. I hope to use this blog to document my thoughts and ideas around technology, and perhaps wider.</p>
+  </article>
+</BaseLayout>
