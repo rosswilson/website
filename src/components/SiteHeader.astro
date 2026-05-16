@@ -4,7 +4,7 @@ interface Props {
 }
 const { active } = Astro.props;
 const linkClass = (key: 'home' | 'about') =>
-  `px-3 py-2 text-sm uppercase tracking-wide ${
+  `px-3 py-2 text-base uppercase tracking-wide ${
     active === key ? 'text-white' : 'text-white/70 hover:text-white'
   }`;
 ---
@@ -18,9 +18,8 @@ const linkClass = (key: 'home' | 'about') =>
       <a
         href="https://twitter.com/rossalexwilson"
         target="_blank"
-        rel="noopener"
-        aria-label="Twitter"
-        class="text-sm text-white/70 hover:text-white"
+        rel="noopener noreferrer"
+        class="text-base text-white/70 hover:text-white"
       >
         @rossalexwilson
       </a>

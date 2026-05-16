@@ -17,18 +17,21 @@ const dateLabel = date.toLocaleDateString('en-GB', {
 const dateISO = date.toISOString().slice(0, 10);
 ---
 <BaseLayout title={`${title} — Ross Wilson`} description={description} ogImage={cover}>
-  <header slot="header" class="relative bg-ink text-white">
+  <header slot="header" class="relative bg-ink text-white overflow-hidden">
     <SiteHeader />
     {cover && (
-      <img
-        src={cover}
-        alt=""
-        class="absolute inset-0 w-full h-full object-cover opacity-40"
-      />
+      <>
+        <img
+          src={cover}
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover opacity-40"
+        />
+        <div class="absolute inset-0 bg-black/30"></div>
+      </>
     )}
     <div class="relative max-w-3xl mx-auto px-6 py-24 text-center">
       <h1 class="text-4xl md:text-5xl font-bold">{title}</h1>
-      <p class="mt-3 text-white/80 text-sm">
+      <p class="mt-3 text-white/80 text-base">
         By Ross Wilson on <time datetime={dateISO}>{dateLabel}</time>
       </p>
     </div>
