@@ -27,6 +27,17 @@ npm run verify  # astro build + smoke-check
 - `CLOUDFLARE_API_TOKEN` — token with `Account.Cloudflare Pages: Edit` permission, scoped to the target account.
 - `CLOUDFLARE_ACCOUNT_ID` — Cloudflare account ID.
 
+## Updating dependencies
+
+To reduce exposure to supply-chain attacks via freshly published malicious versions, dependency updates are filtered through a 7-day cooldown — versions newer than 7 days are not suggested. The cooldown lives in `.ncurc.json`.
+
+```bash
+npm run deps:check     # show available upgrades (respecting 7d cooldown)
+npm run deps:upgrade   # apply them to package.json, then run npm install
+```
+
+After running `deps:upgrade`, always run `npm install && npm run verify` and review the diff before committing. CI uses `npm ci` so production installs are deterministic from `package-lock.json`.
+
 ## Adding a post
 
 1. Create `src/content/blog/<slug>.md`:
