@@ -5,7 +5,7 @@ excerpt: >-
   Back in 2019 I toured a large BT telephone exchange in Manchester. I
   tweeted about it, but thought it'd be nice to preserve the photos and
   narrative here in a blog post.
-cover: /content/images/2023/06/lars-kienle-IlxX7xnbRF8-unsplash.webp
+cover: ../../assets/hero/tour-of-bt-dial-house.webp
 ---
 
 Back in 2019 I toured a large BT telephone exchange in Manchester.

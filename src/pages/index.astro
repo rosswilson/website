@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import HeroCover from '../components/HeroCover.astro';
 import PostCard from '../components/PostCard.astro';
+import heroImage from '../assets/hero/home.webp';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -13,7 +14,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     slot="header"
     title="Ross Wilson"
     subtitle="My procrastination notes"
-    image="/content/images/2021/02/louis-reed-zDxlNcdUzxk-unsplash-1.webp"
+    image={heroImage}
   >
     <SiteHeader slot="nav" active="home" />
   </HeroCover>

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 
@@ -6,7 +7,7 @@ interface Props {
   title: string;
   description?: string;
   date: Date;
-  cover?: string;
+  cover?: ImageMetadata;
 }
 const { title, description, date, cover } = Astro.props;
 const dateLabel = date.toLocaleDateString('en-GB', {
@@ -16,15 +17,18 @@ const dateLabel = date.toLocaleDateString('en-GB', {
 });
 const dateISO = date.toISOString().slice(0, 10);
 ---
-<BaseLayout title={`${title} — Ross Wilson`} description={description} ogImage={cover}>
+<BaseLayout title={`${title} — Ross Wilson`} description={description} ogImage={cover?.src}>
   <header slot="header" class="relative bg-ink text-white overflow-hidden min-h-[50vh] flex">
     <SiteHeader />
     {cover && (
       <>
-        <img
+        <Image
           src={cover}
           alt=""
+          widths={[600, 1200, 1600, 2000]}
+          sizes="100vw"
           fetchpriority="high"
+          loading="eager"
           decoding="async"
           class="absolute inset-0 w-full h-full object-cover opacity-50"
         />
@@ -37,6 +41,8 @@ const dateISO = date.toISOString().slice(0, 10);
         <img
           src="/images/ross-wilson.webp"
           alt=""
+          width="40"
+          height="40"
           class="w-10 h-10 rounded-full object-cover ring-2 ring-white/30"
         />
         <p class="text-base text-white/85">
