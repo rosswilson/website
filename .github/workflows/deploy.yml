@@ -38,6 +38,7 @@ jobs:
           name: dist
           path: dist
       - name: Deploy to Cloudflare Workers
+        id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -45,3 +46,21 @@ jobs:
           wranglerVersion: "4"
           command: >
             ${{ github.event_name == 'pull_request' && 'versions upload' || 'deploy' }}
+      - name: Comment preview URL on PR
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+          WRANGLER_OUTPUT: ${{ steps.deploy.outputs.command-output }}
+        run: |
+          url=$(printf '%s\n' "$WRANGLER_OUTPUT" | grep -oE 'https://[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev' | head -n1)
+          if [ -z "$url" ]; then
+            echo "No preview URL found in wrangler output; skipping comment."
+            exit 0
+          fi
+          body="<!-- cf-preview -->
+          Preview deployment uploaded: $url
+
+          Live deployment is unchanged until this PR is merged."
+          gh pr comment "$PR_NUMBER" --repo "$REPO" --edit-last --create-if-none --body "$body"
